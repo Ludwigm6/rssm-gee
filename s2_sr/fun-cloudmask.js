@@ -4,7 +4,7 @@
 // --> map over collection
 
 
-export.S2_SR_maskclouds = function (image) {
+exports.S2_SR_maskclouds = function (image) {
   var scl = image.select('SCL');
   var wantedPixels = scl.gt(3).and(scl.lt(7)).or(scl.eq(1)).or(scl.eq(2));
   return image.updateMask(wantedPixels)
