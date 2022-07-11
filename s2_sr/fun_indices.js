@@ -2,9 +2,6 @@
 
 
 
-
-
-
 exports.s2_indices = function(img) {
   var ndvi = img.expression('(NIR-RED)/(NIR+RED)', {
               'NIR': img.select('B8'),
