@@ -1,5 +1,5 @@
 // author: Edgar 
-
+// In order to export, the img has to be of data type Int16
 
 
 exports.s2_indices = function(img) {
