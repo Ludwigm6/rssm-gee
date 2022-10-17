@@ -1,0 +1,30 @@
+var aoi = ee.FeatureCollection("projects/europeat/assets/amtsvenn");
+
+
+var sen1vvvh = function(image){
+  
+  var diff = image.select("VV").subtract(image.select("VH")).rename("VVsubVH")
+  var rati = image.select("VV").divide(image.select("VH")).rename("VVdivVH")
+  
+  return image.addBands(diff).addBands(rati)
+  
+}
+
+
+
+var sen1VV = ee.ImageCollection("COPERNICUS/S1_GRD")
+  .filterBounds(aoi)
+  .filterDate('2020-12-29' , '2021-01-08')
+  .filter(ee.Filter.listContains('transmitterReceiverPolarisation', "VV"))
+  .filter(ee.Filter.listContains('transmitterReceiverPolarisation', "VH"))
+  .filter(ee.Filter.eq('instrumentMode', 'IW'))
+  .filterMetadata('resolution_meters', 'equals' , 10)
+  .select("VV", "VH")
+  .map()
+  .toBands();
+
+print(sen1VV)
+
+
+
+
