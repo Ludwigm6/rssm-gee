@@ -72,9 +72,10 @@ Map.addLayer(sen1VV,{} , "Sentinel 1")
 
 
 Export.image.toDrive({
-  
-  
-  
+  image: sen1,
+  description: 'sentinel',
+  scale: 10,
+  region: aoi
 })
 
 
