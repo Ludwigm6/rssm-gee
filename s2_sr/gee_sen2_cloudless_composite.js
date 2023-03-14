@@ -1,4 +1,4 @@
-var aoi = ee.FeatureCollection("users/Ludwigm6/muenster").geometry().bounds();
+var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/be_hainich").geometry()
 
 
 // function for masking of low quality pixels according to the SCL band
@@ -12,12 +12,14 @@ function maskS2clouds(image) {
 // Map the function over the time period of data and take the median.
 var collection = ee.ImageCollection('COPERNICUS/S2_SR')
     .filterBounds(aoi)
-    .filterDate('2017-05-01', '2017-09-30')
+    .filterDate('2021-05-01', '2021-08-30')
     .map(maskS2clouds)
     .select('B2', 'B3', 'B4', 'B8')
 
-var composite = collection.median()
+var composite = collection.median().mask(aoi)
 
+
+Map.addLayer(composite, {}, "Composite")
 
 
 Export.image.toDrive({
