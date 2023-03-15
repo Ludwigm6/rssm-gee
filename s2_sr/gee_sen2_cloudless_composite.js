@@ -1,4 +1,4 @@
-var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/be_hainich").geometry()
+var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/be_schorfheide").geometry()
 
 
 // function for masking of low quality pixels according to the SCL band
@@ -25,6 +25,6 @@ Map.addLayer(composite, {}, "Composite")
 Export.image.toDrive({
   image: composite,
   description: 'sentinel',
-  scale: 50,
+  scale: 30,
   region: aoi
 });
