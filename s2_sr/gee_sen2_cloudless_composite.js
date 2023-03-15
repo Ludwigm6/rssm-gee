@@ -1,4 +1,4 @@
-var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/be_schorfheide").geometry()
+var aoi = ee.FeatureCollection("projects/ee-rssm-beyond/assets/be_hainich").geometry()
 
 
 // function for masking of low quality pixels according to the SCL band
