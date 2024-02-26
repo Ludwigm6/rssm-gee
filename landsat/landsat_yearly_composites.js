@@ -19,12 +19,6 @@ var startYear = 1985;
 var endYear = 2023;
 
 
-
-
-// Define start and end years of the time series
-var startYear = 1985;
-var endYear = 2022;
-
 // startMonth and endMonth - numeric
 // months for each year to aggregate. This can be used to e.g. only select the vegetation period
 var startMonth = 6;
