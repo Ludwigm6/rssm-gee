@@ -180,7 +180,7 @@ print("Multiband Image:", ndviTS)
 Export.image.toDrive({
   image: ndviTS,
   folder: "gee",
-  maxPixels: 1000000000
+  maxPixels: 1000000000,
   scale: 30,
   description: output
 })
