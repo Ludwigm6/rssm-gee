@@ -181,6 +181,7 @@ ndviTS = ndviTS.regexpRename("^.*L", "L")
 Export.image.toDrive({
   collection: ndviExt,
   folder: "gee",
+  scale: 30,
   description: output
 })
 
