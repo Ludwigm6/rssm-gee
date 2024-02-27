@@ -20,8 +20,8 @@ var index = "NDVI"
 var na_value = -5
 
 // Define start and end years and month
-var startYear = 2022;
-var endYear = 2022;
+var startYear = 1985;
+var endYear = 2023;
 var startMonth = 1;
 var endMonth = 12;
 
@@ -172,14 +172,14 @@ ndviTS = ndviTS.regexpRename("^.*L", "L")
 
 // DEBUG Results
 
-// print("raw image collection:", ndvi_ts)
-// print("Multiband Image:", ndviTS)
-// print("Export:", ndviExt)
+print("raw image collection:", ndvi_ts)
+print("Multiband Image:", ndviTS)
+
 
 
 
 Export.image.toDrive({
-  collection: ndviTS,
+  image: ndviTS,
   folder: "gee",
   scale: 30,
   description: output
