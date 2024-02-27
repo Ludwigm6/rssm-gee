@@ -167,12 +167,6 @@ var ndviTS = ndvi_ts
 ndviTS = ndviTS.regexpRename("^.*L", "L")
 
 
-var ndviExt = ndviTS.sampleRegions({
-  collection: pois, 
-  scale: 30,
-  geometries: true,
-  tileScale: 2
-})
 
 
 
@@ -184,7 +178,7 @@ var ndviExt = ndviTS.sampleRegions({
 
 
 
-Export.table.toDrive({
+Export.image.toDrive({
   collection: ndviExt,
   folder: "gee",
   description: output
