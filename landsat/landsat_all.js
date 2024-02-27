@@ -9,8 +9,8 @@
 //// PARAMETERS
 
 // pois - feature collection: points to extract the time series
-var pois = ee.FeatureCollection("projects/gee-processes-data/assets/muenster_four_points")
-var out_prefix = "mu"
+var pois = ee.FeatureCollection("projects/ee-ludwigm6/assets/luenten/extent")
+var out_prefix = "luenten"
 // Define index: NDVI
 
 var index = "NDVI"
