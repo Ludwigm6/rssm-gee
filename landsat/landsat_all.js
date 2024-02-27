@@ -175,8 +175,7 @@ ndviTS = ndviTS.regexpRename("^.*L", "L")
 print("raw image collection:", ndvi_ts)
 print("Multiband Image:", ndviTS)
 
-100000000
-218200500
+
 
 Export.image.toDrive({
   image: ndviTS,
