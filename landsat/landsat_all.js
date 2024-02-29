@@ -162,6 +162,7 @@ var ndvi_ts = lsNDVI(aoi)
 var ndviTS = ndvi_ts
         .toBands()
         .unmask(na_value)
+        .clip(aoi)
         
 // remove merge rename prefixes
 ndviTS = ndviTS.regexpRename("^.*L", "L")
