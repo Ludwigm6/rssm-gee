@@ -172,8 +172,8 @@ ndviTS = ndviTS.regexpRename("^.*L", "L")
 
 // DEBUG Results
 
-print("raw image collection:", ndvi_ts)
-print("Multiband Image:", ndviTS)
+//print("raw image collection:", ndvi_ts)
+//print("Multiband Image:", ndviTS)
 
 
 
