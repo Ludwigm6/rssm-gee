@@ -40,9 +40,10 @@ var aoi = pois.geometry().bounds();
 
 
 var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
-                  .filterDate(startYear, endYear)
-                  .filterBounds(aoi)
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
+                    .filterBounds(aoi)
+                    .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+                    .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
                   //.map(maskS2clouds);
 
 
