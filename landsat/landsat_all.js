@@ -1,4 +1,4 @@
-//// Landsat index time series extract
+//// Landsat index time series
 // Computes a Landsat (vegetation) index time series
 // Extracts the time series for point locations
 
