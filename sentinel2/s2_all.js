@@ -55,7 +55,7 @@ Export.image.toDrive({
   image: ndviTS,
   folder: "gee",
   maxPixels: 1000000000,
-  scale: 30,
+  scale: 10,
   description: output
 })
 
