@@ -46,12 +46,18 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
 
 
 
+var ndviTS = dataset.map(ndvi)
 
 
 
 
-
-
+Export.image.toDrive({
+  image: ndviTS,
+  folder: "gee",
+  maxPixels: 1000000000,
+  scale: 30,
+  description: output
+})
 
 
 
