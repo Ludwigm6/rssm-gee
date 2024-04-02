@@ -65,7 +65,7 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
 
 
 //// AUTHOR
-// 
+// Marvin Ludwig
 
 //// REFERENCES
 // https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED#bands
