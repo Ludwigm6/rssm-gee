@@ -8,8 +8,6 @@
 var pois = ee.FeatureCollection("projects/ee-ludwigm6/assets/luenten/extent")
 var out_prefix = "luenten"
 
-
-
 var index = "NDVI"
 
 
