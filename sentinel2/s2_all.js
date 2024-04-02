@@ -16,9 +16,8 @@ var out_prefix = "luenten"
 
 var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                   .filterDate('2020-01-01', '2020-01-30')
-                  // Pre-filter to get less cloudy granules.
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))
-                  .map(maskS2clouds);
+                  //.map(maskS2clouds);
 
 
 
