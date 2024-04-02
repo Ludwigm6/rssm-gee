@@ -7,7 +7,7 @@ var id_l2a = "S2A_MSIL2A_20191002T180151_N0213_R041_T12SXJ_20191004T091232"
 
 
 //------------------------------
-var s2_l2a = ee.ImageCollection("COPERNICUS/S2_SR")
+var s2_l2a = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
   .filter(ee.Filter.eq("PRODUCT_ID", id_l2a))
   .select('B.*')
 
