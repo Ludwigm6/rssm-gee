@@ -28,9 +28,20 @@ var endMonth = 12;
 
 
 
+// Conduct filename
+var output = out_prefix + "-" + index + "-" +
+             startYear.toString() + "-" + endYear.toString() + "-" +
+             ("0" + startMonth).slice(-2) + "-" +
+             ("0" + endMonth).slice(-2)
+print(output)
+
+
+var aoi = pois.geometry().bounds();
+
 
 var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
-                  .filterDate('2020-01-01', '2020-01-30')
+                  .filterDate(startYear, endYear)
+                  .filterBounds(aoi)
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
                   //.map(maskS2clouds);
 
@@ -40,12 +51,7 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
 
 
 
-// Conduct filename
-var output = out_prefix + "-" + index + "-" +
-             startYear.toString() + "-" + endYear.toString() + "-" +
-             ("0" + startMonth).slice(-2) + "-" +
-             ("0" + endMonth).slice(-2)
-print(output)
+
 
 
 
