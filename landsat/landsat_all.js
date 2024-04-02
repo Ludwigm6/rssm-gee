@@ -3,8 +3,7 @@
 // Extracts the time series for point locations
 
 //// RETURN
-// data.frame, each column is a landsat scene
-// IMPORTANT: the columns are not in temporal order!
+// mutli band image
 
 //// PARAMETERS
 
