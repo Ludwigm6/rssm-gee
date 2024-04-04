@@ -56,17 +56,19 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
                     .map(ndvi)
-                    .select("NDVI");
+                    .select("NDVI")
 
 
 
 
 
 
-var ndviTS = dataset.map(ndvi)
 
 
-print(ndviTS)
+
+
+
+print(dataset)
 
 Export.image.toDrive({
   image: ndviTS,
