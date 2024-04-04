@@ -72,8 +72,8 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
                     .map(s2cloudmask)
-                    .map(ndvi)
-                    .select("NDVI")
+                    //.map(ndvi)
+                    //.select("NDVI")
 
 
 
