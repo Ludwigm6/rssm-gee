@@ -44,7 +44,10 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
                   //.map(maskS2clouds);
 
-
+  var ndvi = img.expression('(NIR-RED)/(NIR+RED)', {
+              'NIR': img.select('B8'),
+              'RED': img.select('B4')
+              }).multiply(10000).toInt16().rename('NDVI');
 
 var ndviTS = dataset.map(ndvi)
 
