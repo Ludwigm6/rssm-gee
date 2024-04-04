@@ -67,22 +67,11 @@ var s2cloudmask = function(image) {
      bestEffort: true});
   
 
-  return image.updateMask(mask).copyProperties(image);
+  return image.updateMask(mask).copyProperties(image).set(ee.Dictionary(countmask.get('QA60')));
 }
 
 
-var unmaskedCol = collection.map(function(img){
-  // unmask each image in the collection
-  var unmasked = img.unmask(-99).eq(-99);
-  // reduce histogram on each image and set the keys as properties (key '1' will be masked pixels)
-  var rR = unmasked.reduceRegion({reducer: ee.Reducer.frequencyHistogram(),
-                               geometry: img.geometry(),
-                               scale: 100,
-                               bestEffort: true});
-  var newProperties = ee.Dictionary(rR.get('elevation'));
-  return img.set(newProperties)
-  
-})
+
 
 
 // cloud masking
