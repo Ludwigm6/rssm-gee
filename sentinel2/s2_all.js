@@ -37,17 +37,8 @@ print(output)
 var aoi = pois.geometry().bounds();
 
 
-var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
-                    .filterBounds(aoi)
-                    .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
-                    .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
-                  //.map(maskS2clouds);
-
-
+// NDVI function
 var ndvi = function(img){
-  
-  
     var ndvi = img.expression('(NIR-RED)/(NIR+RED)', {
               'NIR': img.select('B8'),
               'RED': img.select('B4')
@@ -55,6 +46,18 @@ var ndvi = function(img){
     ndvi = ndvi.updateMask(ndvi.gt(0)).updateMask(ndvi.lt(1))
     return img.addBands(ndvi)
   }
+
+
+
+
+var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
+                    .filterBounds(aoi)
+                    .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+                    .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
+                    .map(ndvi);
+
+
 
 
 
