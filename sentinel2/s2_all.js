@@ -83,7 +83,7 @@ print(dataset)
 
 var ndviTS = dataset.toBands().clip(aoi)
 
-print(dataset_cloud)
+print(ndviTS)
 
 Export.image.toDrive({
   image: dataset,
