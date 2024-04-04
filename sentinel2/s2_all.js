@@ -90,7 +90,7 @@ var ndviTS = dataset.toBands().clip(aoi)
 print(ndviTS)
 
 Export.image.toDrive({
-  image: dataset,
+  image: ndviTS,
   region: pois,
   folder: "gee",
   maxPixels: 1000000000,
