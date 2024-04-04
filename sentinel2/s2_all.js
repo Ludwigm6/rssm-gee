@@ -47,7 +47,8 @@ var ndvi = function(img){
     return img.addBands(ndvi)
   }
 
-
+// Cloudmask
+// also: count masked pixel to remove completely masked images
 var s2cloudmask = function(image) {
   var qa = image.select('QA60');
 
