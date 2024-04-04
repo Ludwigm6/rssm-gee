@@ -82,6 +82,7 @@ print(dataset)
 
 var dataset_cloud = dataset.map(s2cloudmask)
 
+print(dataset_cloud)
 
 Export.image.toDrive({
   image: dataset,
