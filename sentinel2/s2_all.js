@@ -50,6 +50,9 @@ var ndvi = function(img){
 
 
 
+// cloud masking
+
+
 var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filterBounds(aoi)
                     .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
