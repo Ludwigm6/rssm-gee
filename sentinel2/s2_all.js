@@ -60,14 +60,6 @@ var s2cloudmask = function(image) {
   var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
       .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
       
-  var countmask = image.unmask(-99).eq(-99).reduceRegion(
-    {reducer: ee.Reducer.frequencyHistogram(),
-     geometry: pois,
-     scale: 10,
-     bestEffort: true});
-  
-
-  return image.updateMask(mask).copyProperties(image).set(ee.Dictionary(countmask.get('QA60')));
 }
 
 
