@@ -59,7 +59,7 @@ var s2cloudmask = function(image) {
   var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
       .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
-  return image.updateMask(mask).divide(10000);
+  return image.updateMask(mask).copyProperties(image);
 }
 
 
@@ -70,7 +70,7 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filterBounds(aoi)
                     .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
                     .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))
                     //.map(s2cloudmask)
                     //.map(ndvi)
                     //.select("NDVI")
