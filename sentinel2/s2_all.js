@@ -75,13 +75,13 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .map(ndvi)
                     .select("NDVI")
 
-dataset.rename()
+
 
 
 print(dataset)
 
 
-var dataset_cloud = dataset.map(s2cloudmask)
+var ndviTS = dataset.toBands().clip(aoi)
 
 print(dataset_cloud)
 
