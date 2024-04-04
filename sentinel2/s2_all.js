@@ -54,7 +54,7 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                     .filterBounds(aoi)
                     .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
                     .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',80))
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))
                     .map(ndvi)
                     .select("NDVI")
 
