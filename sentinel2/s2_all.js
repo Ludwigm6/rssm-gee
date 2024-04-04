@@ -48,7 +48,7 @@ var ndvi = function(img){
   }
 
 
-s2cloudmask = function maskS2clouds(image) {
+var s2cloudmask = function maskS2clouds(image) {
   var qa = image.select('QA60');
 
   // Bits 10 and 11 are clouds and cirrus, respectively.
