@@ -91,6 +91,7 @@ print(ndviTS)
 
 Export.image.toDrive({
   image: dataset,
+  region: pois,
   folder: "gee",
   maxPixels: 1000000000,
   scale: 10,
