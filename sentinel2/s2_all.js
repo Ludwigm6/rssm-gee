@@ -15,7 +15,7 @@ var index = "NDVI"
 var na_value = -5
 
 // Define start and end years and month
-var startYear = 1985;
+var startYear = 2015;
 var endYear = 2023;
 var startMonth = 1;
 var endMonth = 12;
