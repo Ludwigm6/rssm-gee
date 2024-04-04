@@ -47,20 +47,6 @@ var ndvi = function(img){
     return img.addBands(ndvi)
   }
 
-// Cloudmask
-// also: count masked pixel to remove completely masked images
-var s2cloudmask = function(image) {
-  var qa = image.select('QA60');
-
-  // Bits 10 and 11 are clouds and cirrus, respectively.
-  var cloudBitMask = 1 << 10;
-  var cirrusBitMask = 1 << 11;
-
-  // Both flags should be set to zero, indicating clear conditions.
-  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
-      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
-      
-}
 
 
 
