@@ -71,7 +71,7 @@ var dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
 print(dataset)
 
 Export.image.toDrive({
-  image: ndviTS,
+  image: dataset,
   folder: "gee",
   maxPixels: 1000000000,
   scale: 10,
