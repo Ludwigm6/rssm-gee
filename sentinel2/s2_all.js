@@ -59,9 +59,30 @@ var s2cloudmask = function(image) {
   // Both flags should be set to zero, indicating clear conditions.
   var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
       .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
+      
+  var countmask = image.unmask(-99).eq(-99).reduceRegion(
+    {reducer: ee.Reducer.frequencyHistogram(),
+     geometry: pois,
+     scale: 10,
+     bestEffort: true});
+  
 
   return image.updateMask(mask).copyProperties(image);
 }
+
+
+var unmaskedCol = collection.map(function(img){
+  // unmask each image in the collection
+  var unmasked = img.unmask(-99).eq(-99);
+  // reduce histogram on each image and set the keys as properties (key '1' will be masked pixels)
+  var rR = unmasked.reduceRegion({reducer: ee.Reducer.frequencyHistogram(),
+                               geometry: img.geometry(),
+                               scale: 100,
+                               bestEffort: true});
+  var newProperties = ee.Dictionary(rR.get('elevation'));
+  return img.set(newProperties)
+  
+})
 
 
 // cloud masking
