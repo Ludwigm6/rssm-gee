@@ -60,6 +60,10 @@ var s2cloudmask = function(image) {
   var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
       .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
       
+
+  
+
+  return image.updateMask(mask).copyProperties(image);
 }
 
 
