@@ -8,8 +8,8 @@
 //// PARAMETERS
 
 // pois - feature collection: points to extract the time series
-var pois = ee.FeatureCollection("projects/ee-ludwigm6/assets/luenten/extent")
-var out_prefix = "luenten"
+var pois = ee.FeatureCollection("projects/ee-ludwigm6/assets/luenten/schwattetgatt_natura2000")
+var out_prefix = "schwattetgatt"
 // Define index: NDVI
 
 var index = "NDWI"
