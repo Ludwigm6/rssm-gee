@@ -10,7 +10,7 @@
 //// PARAMETERS
 
 // pois - featurecollection: points at which the time series is extracted
-var pois = ee.FeatureCollection("projects/ee-rssm-beyond/assets/LUCAS_2018_2022_grassland_loc")
+var pois = ee.FeatureCollection("projects/ee-rssm-beyond/assets/LUCAS_2018_2022_grassland_loc_success")
 
 // index - string: NDVI
 var index = "NDVI"
@@ -28,7 +28,7 @@ var startMonth = 6;
 var endMonth = 9;
 
 // choose reducer to aggregate the months (see reducer_list below)
-var reducer = "p90"
+var reducer = "10mean90"
 
 var reducer_list = {'median': ee.Reducer.median(),
                     '10mean90': ee.Reducer.intervalMean(10,90),
