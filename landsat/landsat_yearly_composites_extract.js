@@ -10,7 +10,7 @@
 //// PARAMETERS
 
 // pois - featurecollection: points at which the time series is extracted
-var pois = ee.FeatureCollection("projects/ee-rssm-beyond/assets/LUCAS_2018_2022_grassland_loc_success")
+var pois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder")
 
 // index - string: NDVI
 var index = "NDVI"
