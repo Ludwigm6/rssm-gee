@@ -38,7 +38,7 @@ var reducer_list = {'median': ee.Reducer.median(),
   }
 
 // out_prefix - string: output filename prefix
-var out_prefix = "LUCAS"
+var out_prefix = "moorwaelder"
 
 
 
@@ -93,7 +93,7 @@ var lsNDVI = function(aoi){
   return image.addBands(opticalBands, null, true)
       .updateMask(qaMask)
       .updateMask(saturationMask)
-      //.unmask(-99999);
+      //.unmask(-99999);r
 }
 
 
