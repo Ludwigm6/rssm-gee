@@ -9,7 +9,7 @@
 //// PARAMETERS
 
 // aoi - FeatureCollection: area of interest
-var aoi = ee.FeatureCollection("projects/ee-rssm-beyond/assets/explos/be_hai");
+var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder");
 
 // index - string: NDVI
 var index = "NDVI"
