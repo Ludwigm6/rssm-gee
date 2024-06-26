@@ -25,7 +25,7 @@ var startMonth = 6;
 var endMonth = 9;
 
 // choose reducer to aggregate the months (see reducer_list below)
-var reducer = "mean"
+var reducer = "median"
 
 var reducer_list = {'median': ee.Reducer.median(),
                     '10mean90': ee.Reducer.intervalMean(10,90),
