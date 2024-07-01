@@ -24,7 +24,7 @@ var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
   .select(['SR_B4'])
   .toBands()
 
-Print(l9)
+print(l9)
 
 Map.addLayer(l9, {}, "L9 First")
 
