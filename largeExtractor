@@ -3,7 +3,16 @@
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
-print("moore", aois)
+var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
 
 
 
