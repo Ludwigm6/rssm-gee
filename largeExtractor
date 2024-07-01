@@ -43,6 +43,48 @@ var reducer_list = {'median': ee.Reducer.median(),
 //#########################################################################
 
 
+
+
+function maskLcl(image) {
+  // Bit 0 - Fill
+  // Bit 1 - Dilated Cloud
+  // Bit 2 - Unused
+  // Bit 3 - Cloud
+  // Bit 4 - Cloud Shadow
+  // Bit 5 - Snow
+  //var snowBit = 1 << 6;
+  var qaMask = image.select('QA_PIXEL').bitwiseAnd(parseInt('111111', 2)).eq(0)
+  //  .and(image.select('QA_PIXEL').bitwiseAnd(snowBit).eq(0));
+  var saturationMask = image.select('QA_RADSAT').eq(0);
+
+  // Apply the scaling factors to the appropriate bands.
+  var opticalBands = image.select(['RED', 'NIR']).multiply(0.0000275).add(-0.2);
+  // Replace the original bands with the scaled ones and apply the masks.
+  return image.addBands(opticalBands, null, true)
+      .updateMask(qaMask)
+      .updateMask(saturationMask)
+      //.unmask(-99999);
+}
+
+
+
+// Rename bands, because Bands are different for different satellites
+var name_standard = ['RED', 'NIR', 'QA_PIXEL', 'QA_RADSAT']
+
+
+// Define function ndvi
+var ndvi = function(img){
+    var ndvi = img.expression('(NIR-RED)/(NIR+RED)', {
+              'NIR': img.select('NIR'),
+              'RED': img.select('RED')
+              }).rename('NDVI').toFloat();
+    ndvi = ndvi.updateMask(ndvi.gt(0)).updateMask(ndvi.lt(1))
+    return img.addBands(ndvi)
+  }
+
+
+
+
 extracted = aois.map(function(aoi){
   
   
