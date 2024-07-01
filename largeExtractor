@@ -22,7 +22,7 @@ var extracted = aois.map(function(feature){
   .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'])
   .toBands()
 
-  
+  print(l9)
   return ee.Feature(feature.geometry(), l9.reduceRegion({
     reducer: ee.Reducer.median(),
     geometry: feature.geometry(),
