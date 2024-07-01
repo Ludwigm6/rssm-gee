@@ -98,7 +98,7 @@ var extracted = aois.map(function(aoi){
   
   
   var l4 = ee.ImageCollection("LANDSAT/LT04/C02/T1_L2")
-  .filterBounds(aoi)
+  .filterBounds(aoi.geometry())
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
@@ -107,7 +107,7 @@ var extracted = aois.map(function(aoi){
   .select("NDVI")
 
 var l5 = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
-  .filterBounds(aoi)
+  .filterBounds(aoi.geometry())
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
@@ -116,7 +116,7 @@ var l5 = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
   .select("NDVI")
 
 var l7 = ee.ImageCollection("LANDSAT/LE07/C02/T1_L2")
-  .filterBounds(aoi)
+  .filterBounds(aoi.geometry())
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
@@ -126,7 +126,7 @@ var l7 = ee.ImageCollection("LANDSAT/LE07/C02/T1_L2")
 
 
 var l8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
-  .filterBounds(aoi)
+  .filterBounds(aoi.geometry())
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'], name_standard)
@@ -135,7 +135,7 @@ var l8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   .select("NDVI")
 
 var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
-  .filterBounds(aoi)
+  .filterBounds(aoi.geometry())
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'], name_standard)
