@@ -1,3 +1,45 @@
+//// Landsat Yearly Index Composite Time Series
+// Computes a Landsat (vegetation) index time series with a yearly resolution.
+// How the months of a year are aggeragted can be selected with "reducer"
+
+//// RETURN
+// Multi-Layer Image, each layer is a year
+
+
+//// PARAMETERS
+
+// aoi - FeatureCollection: area of interest
+var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder");
+
+// index - string: NDVI
+var index = "NDVI"
+
+// Define startYear and endYear - numeric
+var startYear = 1985;
+var endYear = 2023;
+
+
+// startMonth and endMonth - numeric
+// months for each year to aggregate. This can be used to e.g. only select the vegetation period
+var startMonth = 6;
+var endMonth = 9;
+
+// choose reducer to aggregate the months (see reducer_list below)
+var reducer = "median"
+
+var reducer_list = {'median': ee.Reducer.median(),
+                    '10mean90': ee.Reducer.intervalMean(10,90),
+                    'p90': ee.Reducer.percentile([90]),
+                    'p10': ee.Reducer.percentile([10]),
+                    'mean': ee.Reducer.mean()
+}
+
+
+// out_prefix - string: output filename prefix
+// out_crs - string: output EPSG Code
+// out_scale - numeric: output spatial resolution
+var out_prefix = "hai"
+var out_crs = "EPSG:25832"
 
 
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
@@ -79,3 +121,21 @@ Export.table.toDrive({
 //    scale: 30
   //}))
 //})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
