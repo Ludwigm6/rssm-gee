@@ -3,6 +3,17 @@
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
+
+var extracted = aois.map(function(feature){
+  
+  
+  
+  
+  
+})
+
+
+
 var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
   .filterBounds(aoi)
   .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
