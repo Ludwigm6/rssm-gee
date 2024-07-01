@@ -28,7 +28,7 @@ var extracted = aois.map(function(feature){
 
   return ee.Feature(feature.geometry(),
   l9.reduceRegion({
-    reducer: ee.Reducer.median(),
+    reducer: ee.Reducer.first(),
     geometry: feature.geometry(),
     scale: 30
   }))
