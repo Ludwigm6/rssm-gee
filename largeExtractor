@@ -35,21 +35,46 @@ var reducer_list = {'median': ee.Reducer.median(),
 }
 
 
-// out_prefix - string: output filename prefix
-// out_crs - string: output EPSG Code
-// out_scale - numeric: output spatial resolution
 
 
-var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
-var startYear = 2022
-var endYear = 2024
-var startMonth = 6
-var endMonth = 8
+
+//#########################################################################
 
 
-print(aois)
+extracted = aois.map(function(aoi){
+  
+  
+  
+  
+  
+  
+  
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 print(aois.geometry())
