@@ -3,8 +3,8 @@
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
-var startYear = 2015
-var endYear = 2018
+var startYear = 2022
+var endYear = 2024
 var startMonth = 6
 var endMonth = 8
 
@@ -23,6 +23,7 @@ var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
   //.filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(['SR_B4'])
   .toBands()
+  .unmask()
 
 print(l9)
 
@@ -61,6 +62,15 @@ print(extracted)
 Map.addLayer(aois, {}, "moore")
 
 Map.addLayer(extracted, {}, "ext")
+
+
+Export.table.toDrive({
+  collection: extracted,
+  folder: "gee"
+  
+})
+
+
 
 //var extracted = point.map(function (feature) {
 //  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
