@@ -94,7 +94,7 @@ for(var i = startYear; i <= endYear; i++) {
 var myReducer = reducer_list[reducer]
 
 
-extracted = aois.map(function(aoi){
+var extracted = aois.map(function(aoi){
   
   
   var l4 = ee.ImageCollection("LANDSAT/LT04/C02/T1_L2")
