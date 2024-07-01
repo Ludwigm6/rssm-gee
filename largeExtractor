@@ -1,3 +1,9 @@
+
+
+var aois = ee.FeatureCollection("")
+
+
+
 var extracted = point.map(function (feature) {
   return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
     reducer: ee.Reducer.first(), 
