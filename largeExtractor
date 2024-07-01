@@ -7,15 +7,8 @@ var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moo
 var extracted = aois.map(function(feature){
   
   
-  
-  
-  
-})
-
-
-
-var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
-  .filterBounds(aoi)
+  var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+  .filterBounds(feature)
   .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
@@ -23,6 +16,15 @@ var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
   .map(maskLcl)
   .map(ndvi)
   .select("NDVI")
+  
+  return()
+  
+  
+})
+
+
+
+
 
 
 
