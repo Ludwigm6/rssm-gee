@@ -22,7 +22,7 @@ var extracted = aois.map(function(feature){
   .filterBounds(feature.geometry())
   .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
   .select(['SR_B4'])
   .toBands()
 
