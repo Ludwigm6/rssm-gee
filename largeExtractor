@@ -9,7 +9,7 @@ var startMonth = 6
 var endMonth = 8
 
 
-
+print(aois)
 
 var extracted = aois.map(function(feature){
   
