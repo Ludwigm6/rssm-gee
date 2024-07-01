@@ -1,0 +1,7 @@
+var extracted = point.map(function (feature) {
+  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
+    reducer: ee.Reducer.first(), 
+    geometry: feature.geometry(), 
+    scale: 30
+  }))
+})
