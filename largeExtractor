@@ -88,9 +88,84 @@ var ndvi = function(img){
 extracted = aois.map(function(aoi){
   
   
+  var l4 = ee.ImageCollection("LANDSAT/LT04/C02/T1_L2")
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
+var l5 = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
+var l7 = ee.ImageCollection("LANDSAT/LE07/C02/T1_L2")
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
+
+var l8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
+var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+  .filterBounds(aoi)
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  .filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'], name_standard)
+  .map(maskLcl)
+  .map(ndvi)
+  .select("NDVI")
+
+var L = l4.merge(l5).merge(l7).merge(l8).merge(l9)
+
+L = L.sort("DATE_ACQUIRED")
   
   
   
+  // Make a list of years to generate composites for.
+var yearList = ee.List.sequence(startYear, endYear);
+
+// Map over the list of years to generate a composite for each year - returns an List.
+var yearCompList = yearList.map(function(year){
+  // Filter the merged collection by the given year.  
+  var yearCol = L.filter(ee.Filter.calendarRange(year, year, 'year'));
+  // Reduce (composite) the images for this year.
+  var yearComp = yearCol.reduce(myReducer);
+  // Return the intra-annual composite - set properties just defined.
+  return yearComp.set({
+    'year': year
+  });
+});
+  
+  var ndviTS = ee.ImageCollection(yearCompList)
+        .toBands()
+        .rename(bandnames)
+        .clip(aoi)
+  
+  return ee.Feature(feature.geometry(),
+  ndviTS.reduceRegion({
+    reducer: ee.Reducer.median(),
+    geometry: feature.geometry(),
+    scale: 30
+  }))
   
   
 })
@@ -98,7 +173,7 @@ extracted = aois.map(function(aoi){
 
 
 
-
+print(extracted)
 
 
 
