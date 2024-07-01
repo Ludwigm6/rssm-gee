@@ -89,7 +89,7 @@ for(var i = startYear; i <= endYear; i++) {
 }
 
 
-
+print(bandnames)
 
 var myReducer = reducer_list[reducer]
 
