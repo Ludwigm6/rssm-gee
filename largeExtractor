@@ -19,7 +19,7 @@ var extracted = aois.map(function(feature){
   
   
   var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
-  .filterBounds(feature)
+  .filterBounds(feature.geometry())
   .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
