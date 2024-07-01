@@ -157,7 +157,7 @@ var yearCompList = yearList.map(function(year){
   // Filter the merged collection by the given year.  
   var yearCol = L.filter(ee.Filter.calendarRange(year, year, 'year'));
   // Reduce (composite) the images for this year.
-  var yearComp = yearCol.reduce(reducer);
+  var yearComp = yearCol.reduce(my_reducer);
   // Return the intra-annual composite - set properties just defined.
   return yearComp.set({
     'year': year
