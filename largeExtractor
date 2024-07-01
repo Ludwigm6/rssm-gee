@@ -21,8 +21,8 @@ var endYear = 2023;
 
 // startMonth and endMonth - numeric
 // months for each year to aggregate. This can be used to e.g. only select the vegetation period
-var startMonth = 6;
-var endMonth = 9;
+var startMonth = 4;
+var endMonth = 10;
 
 // choose reducer to aggregate the months (see reducer_list below)
 var reducer = "median"
