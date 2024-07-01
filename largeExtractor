@@ -11,6 +11,10 @@ var endMonth = 8
 
 print(aois)
 
+
+print(aois.geomerty())
+
+
 var extracted = aois.map(function(feature){
   
   
