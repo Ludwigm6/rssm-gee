@@ -26,7 +26,7 @@ var extracted = aois.map(function(feature){
   .select(['SR_B4'])
   .toBands()
 
-  return ee.Feature(feature.geometry,
+  return ee.Feature(feature.geometry(),
   l9.reduceRegion({
     reducer: ee.Reducer.median(),
     geometry: feature.geometry(),
