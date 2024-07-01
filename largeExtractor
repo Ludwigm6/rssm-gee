@@ -23,10 +23,10 @@ var extracted = aois.map(function(feature){
   .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
-  .select(['SR_B4', 'SR_B5', 'QA_PIXEL', 'QA_RADSAT'])
+  .select(['SR_B4'])
   .toBands()
 
-  return ee.Feature(feature,
+  return ee.Feature(feature.geometry,
   l9.reduceRegion({
     reducer: ee.Reducer.median(),
     geometry: feature.geometry(),
