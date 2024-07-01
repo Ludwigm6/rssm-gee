@@ -45,7 +45,7 @@ print(extracted)
 
 Map.addLayer(aois, {}, "moore")
 
-
+Map.addLayer(extracted, {}, "ext")
 
 //var extracted = point.map(function (feature) {
 //  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
