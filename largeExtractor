@@ -3,6 +3,13 @@
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
+var startYear = 2015
+var endYear = 2018
+var startMonth = 6
+var endMonth = 8
+
+
+
 
 var extracted = aois.map(function(feature){
   
