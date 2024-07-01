@@ -82,7 +82,16 @@ var ndvi = function(img){
     return img.addBands(ndvi)
   }
 
+// Conduct Band names 
+var bandnames = [];
+for(var i = startYear; i <= endYear; i++) {
+  bandnames.push(index + reducer + "_" + i)
+}
 
+
+
+
+var myReducer = reducer_list[reducer]
 
 
 extracted = aois.map(function(aoi){
@@ -148,7 +157,7 @@ var yearCompList = yearList.map(function(year){
   // Filter the merged collection by the given year.  
   var yearCol = L.filter(ee.Filter.calendarRange(year, year, 'year'));
   // Reduce (composite) the images for this year.
-  var yearComp = yearCol.reduce(myReducer);
+  var yearComp = yearCol.reduce(reducer);
   // Return the intra-annual composite - set properties just defined.
   return yearComp.set({
     'year': year
@@ -194,66 +203,66 @@ print(extracted)
 
 
 
-print(aois.geometry())
-
-
-print(aois.first())
-var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
-  .filterBounds(aois.first().geometry())
-  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
-  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
-  .select(['SR_B4'])
-  .toBands()
-  .unmask()
-
-print(l9)
-
-Map.addLayer(l9, {}, "L9 First")
-
-
-
-var extracted = aois.map(function(feature){
-  
-  
-  var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
-  .filterBounds(feature.geometry())
-  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
-  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
-  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
-  .select(['SR_B4'])
-  .toBands()
-
-  return ee.Feature(feature.geometry(),
-  l9.reduceRegion({
-    reducer: ee.Reducer.median(),
-    geometry: feature.geometry(),
-    scale: 30
-  }))
-  
-  
-})
-
-
-print(extracted)
-
-
-
-
-
-Map.addLayer(aois, {}, "moore")
-
-Map.addLayer(extracted, {}, "ext")
-
-
-Export.table.toDrive({
-  collection: extracted,
-  folder: "gee"
-  
-})
-
-
-
+//print(aois.geometry())
+//
+//
+//print(aois.first())
+//var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+//  .filterBounds(aois.first().geometry())
+//  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+//  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+//  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
+//  .select(['SR_B4'])
+//  .toBands()
+//  .unmask()
+//
+//print(l9)
+//
+//Map.addLayer(l9, {}, "L9 First")
+//
+//
+//
+//var extracted = aois.map(function(feature){
+//  
+//  
+//  var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+//  .filterBounds(feature.geometry())
+//  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+//  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+//  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
+//  .select(['SR_B4'])
+//  .toBands()
+//
+//  return ee.Feature(feature.geometry(),
+//  l9.reduceRegion({
+//    reducer: ee.Reducer.median(),
+//    geometry: feature.geometry(),
+//    scale: 30
+//  }))
+//  
+//  
+//})
+//
+//
+//print(extracted)
+//
+//
+//
+//
+//
+//Map.addLayer(aois, {}, "moore")
+//
+//Map.addLayer(extracted, {}, "ext")
+//
+//
+//Export.table.toDrive({
+//  collection: extracted,
+//  folder: "gee"
+//  
+//})
+//
+//
+//
 //var extracted = point.map(function (feature) {
 //  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
 //    reducer: ee.Reducer.first(), 
