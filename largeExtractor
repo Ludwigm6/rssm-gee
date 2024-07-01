@@ -38,8 +38,6 @@ var reducer_list = {'median': ee.Reducer.median(),
 // out_prefix - string: output filename prefix
 // out_crs - string: output EPSG Code
 // out_scale - numeric: output spatial resolution
-var out_prefix = "hai"
-var out_crs = "EPSG:25832"
 
 
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
