@@ -15,6 +15,21 @@ print(aois)
 print(aois.geometry())
 
 
+
+var l9 = ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')
+  .filterBounds(aois.first().geometry())
+  .filter(ee.Filter.calendarRange(startYear, endYear, 'year'))
+  .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
+  //.filter(ee.Filter.lt('CLOUD_COVER', 80))
+  .select(['SR_B4'])
+  .toBands()
+
+
+
+Map.addLayer(l9, {}, "L9 First")
+
+
+
 var extracted = aois.map(function(feature){
   
   
