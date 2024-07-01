@@ -32,7 +32,7 @@ var extracted = aois.map(function(feature){
 })
 
 
-
+print(extracted)
 
 
 
