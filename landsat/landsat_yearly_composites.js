@@ -46,7 +46,7 @@ var out_scale = 30
 
 
 // ###################################################################################
-// SCRIPT END
+// SCRIPT START
 
 // Conduct filename
 var output = out_prefix + "-" + index + "-" +
