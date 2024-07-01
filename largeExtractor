@@ -173,7 +173,8 @@ var yearCompList = yearList.map(function(year){
   ndviTS.reduceRegion({
     reducer: ee.Reducer.median(),
     geometry: aoi.geometry(),
-    scale: 30
+    scale: 30,
+    bestEffort: true
   }))
   
   
