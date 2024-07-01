@@ -3,11 +3,14 @@
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample")
 
 
+Map.addLayer(aois, {}, "moore")
 
-var extracted = point.map(function (feature) {
-  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
-    reducer: ee.Reducer.first(), 
-    geometry: feature.geometry(), 
-    scale: 30
-  }))
-})
+
+
+//var extracted = point.map(function (feature) {
+//  return ee.Feature(feature.geometry(), neighborhoods.reduceRegion({
+//    reducer: ee.Reducer.first(), 
+//    geometry: feature.geometry(), 
+//    scale: 30
+  //}))
+//})
