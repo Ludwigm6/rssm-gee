@@ -196,7 +196,8 @@ Export.table.toDrive({collection: extracted})
 
 
 
-
+// sources
+// https://gis.stackexchange.com/questions/434155/reduceregions-image-reduceregions-computed-value-is-too-large-error-code-3
 
 
 
