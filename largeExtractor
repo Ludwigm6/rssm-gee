@@ -169,10 +169,10 @@ var yearCompList = yearList.map(function(year){
         .rename(bandnames)
         .clip(aoi)
   
-  return ee.Feature(feature.geometry(),
+  return ee.Feature(aoi.geometry(),
   ndviTS.reduceRegion({
     reducer: ee.Reducer.median(),
-    geometry: feature.geometry(),
+    geometry: aoi.geometry(),
     scale: 30
   }))
   
