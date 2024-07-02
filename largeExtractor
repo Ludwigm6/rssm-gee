@@ -183,7 +183,7 @@ var yearCompList = yearList.map(function(year){
     maxPixels: 10000000000000
   }))
   
-  result.set("")
+  result.set("SITECODE", aoi.get("SITECODE"))
   
   return result
   
