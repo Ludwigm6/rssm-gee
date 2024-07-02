@@ -13,6 +13,9 @@ var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moo
 
 print("aois", aois)
 
+print(aois.first().get("SITECODE"))
+
+
 Map.addLayer(aois, {}, "AOIS")
 
 // index - string: NDVI
@@ -181,9 +184,12 @@ var yearCompList = yearList.map(function(year){
     bestEffort: true,
     tileScale: 4,
     maxPixels: 10000000000000
-  }))
+  })).set("SITECODE", aoi.get("SITECODE"))
   
-  result.set("SITECODE", aoi.get("SITECODE"))
+  
+  var current_code = aoi.get("SITECODE")
+  
+  result.set("SITECODE", current_code)
   
   return result
   
@@ -192,7 +198,7 @@ var yearCompList = yearList.map(function(year){
 
 
 
-print("extracted" extracted)
+print("extracted" , extracted)
 
 
 
