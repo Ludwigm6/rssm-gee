@@ -9,7 +9,7 @@
 //// PARAMETERS
 
 // aois - FeatureCollection: contains multiple areas of interest
-var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder");
+var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample");
 
 
 
@@ -173,7 +173,7 @@ var yearCompList = yearList.map(function(year){
         .rename(bandnames)
         .clip(aoi)
   
-  return ee.Feature(aoi.geometry(),
+  var result =  ee.Feature(aoi.geometry(),
   ndviTS.reduceRegion({
     reducer: ee.Reducer.median(),
     geometry: aoi.geometry(),
@@ -183,6 +183,9 @@ var yearCompList = yearList.map(function(year){
     maxPixels: 10000000000000
   }))
   
+  result.set("")
+  
+  return result
   
 })
 
