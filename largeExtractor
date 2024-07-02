@@ -187,10 +187,6 @@ var yearCompList = yearList.map(function(year){
   })).set("SITECODE", aoi.get("SITECODE"))
   
   
-  var current_code = aoi.get("SITECODE")
-  
-  result.set("SITECODE", current_code)
-  
   return result
   
 })
