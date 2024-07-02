@@ -179,7 +179,7 @@ var yearCompList = yearList.map(function(year){
     geometry: aoi.geometry(),
     scale: 30,
     bestEffort: true,
-    tileScale: 2
+    tileScale: 4
   }))
   
   
