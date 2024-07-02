@@ -178,7 +178,7 @@ var yearCompList = yearList.map(function(year){
   
   var result =  ee.Feature(aoi.geometry(),
   ndviTS.reduceRegion({
-    reducer: ee.Reducer.median(),
+    reducer: ee.Reducer.variance(),
     geometry: aoi.geometry(),
     scale: 30,
     bestEffort: true,
