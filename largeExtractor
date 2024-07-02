@@ -11,7 +11,7 @@
 // aois - FeatureCollection: contains multiple areas of interest
 var aois = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder_develsample");
 
-
+print("aois", aois)
 
 Map.addLayer(aois, {}, "AOIS")
 
