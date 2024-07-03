@@ -46,11 +46,6 @@ print(output)
 
 
 
-var myReducer = reducer_list[reducer]
-
-
-
-
 var lsMosaic = function(aoi){
   
   function maskLcl(image) {
