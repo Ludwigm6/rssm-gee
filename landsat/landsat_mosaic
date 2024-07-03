@@ -61,7 +61,7 @@ var lsMosaic = function(aoi){
   var saturationMask = image.select('QA_RADSAT').eq(0);
 
   // Apply the scaling factors to the appropriate bands.
-  var opticalBands = image.select(['RED', 'NIR']).multiply(0.0000275).add(-0.2);
+  var opticalBands = image.select(['BLUE', 'GREEN', 'RED', 'NIR']).multiply(0.0000275).add(-0.2);
   // Replace the original bands with the scaled ones and apply the masks.
   return image.addBands(opticalBands, null, true)
       .updateMask(qaMask)
