@@ -147,12 +147,6 @@ var landsat_mosic = lsMosaic(aoi)
 
 
 
-var ndviTS = ee.ImageCollection(yearCompList)
-        .toBands()
-        .rename(bandnames)
-        .clip(aoi)
-
-
 print(bandnames)
 print(landsat_mosaic)
 Map.addLayer(landsat_mosaic.select(1), {}, "Landsat")
