@@ -16,8 +16,8 @@ var year = 2015
 
 // startMonth and endMonth - numeric
 // months for each year to mosaic. This can be used to e.g. only select the vegetation period
-var startMonth = 6;
-var endMonth = 9;
+var startMonth = 7;
+var endMonth = 7;
 
 
 // out_prefix - string: output filename prefix
@@ -37,7 +37,7 @@ var out_scale = 30
 var output = out_prefix + "-" + "mosaic" + "-" +
              year.toString() + "-" +
              ("0" + startMonth).slice(-2) + "-" +
-             ("0" + endMonth).slice(-2) + "-"
+             ("0" + endMonth).slice(-2)
 print(output)
 
 
@@ -132,7 +132,7 @@ var L = l4.merge(l5).merge(l7).merge(l8).merge(l9)
 L = L.sort("DATE_ACQUIRED")
 
 
-L = L.mosaic()
+//L = L.mosaic()
 
   
 return(L)
@@ -141,7 +141,10 @@ return(L)
 }
 
 var landsat_mosaic = lsMosaic(aoi)
-landsat_mosaic = landsat_mosaic.clip(aoi)
+
+
+
+// landsat_mosaic = landsat_mosaic.clip(aoi)
 
 // #######################################################################
 
