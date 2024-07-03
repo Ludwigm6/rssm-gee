@@ -180,7 +180,7 @@ var ndviTS = ee.ImageCollection(yearCompList)
 
 print(bandnames)
 print(landsat_mosaic)
-Map.addLayer(ndviTS.select(1), {}, "Landsat")
+Map.addLayer(landsat_mosaic.select(1), {}, "Landsat")
 
 
 
