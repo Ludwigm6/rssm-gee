@@ -156,13 +156,16 @@ var L = l4.merge(l5).merge(l7).merge(l8).merge(l9)
 
 L = L.sort("DATE_ACQUIRED")
 
+
+L = L.mosaic()
+
   
 return(L)
 
 
 }
 
-var ndvi_ts = lsNDVI(aoi)
+var landsat_mosic = lsNDVI(aoi)
 
 // #######################################################################
 
