@@ -165,7 +165,7 @@ return(L)
 
 }
 
-var landsat_mosic = lsNDVI(aoi)
+var landsat_mosic = lsMosaic(aoi)
 
 // #######################################################################
 
