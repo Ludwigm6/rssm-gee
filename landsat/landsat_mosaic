@@ -19,16 +19,6 @@ var year = 2015
 var startMonth = 6;
 var endMonth = 9;
 
-// choose reducer to aggregate the months (see reducer_list below)
-var reducer = "median"
-
-var reducer_list = {'median': ee.Reducer.median(),
-                    '10mean90': ee.Reducer.intervalMean(10,90),
-                    'p90': ee.Reducer.percentile([90]),
-                    'p10': ee.Reducer.percentile([10]),
-                    'mean': ee.Reducer.mean()
-}
-
 
 // out_prefix - string: output filename prefix
 // out_crs - string: output EPSG Code
@@ -44,11 +34,10 @@ var out_scale = 30
 // SCRIPT START
 
 // Conduct filename
-var output = out_prefix + "-" + index + "-" +
-             startYear.toString() + "-" + endYear.toString() + "-" +
+var output = out_prefix + "-" + "mosaic" + "-" +
+             year.toString() + "-" +
              ("0" + startMonth).slice(-2) + "-" +
-             ("0" + endMonth).slice(-2) + "-" +
-             reducer
+             ("0" + endMonth).slice(-2) + "-"
 print(output)
 
 
