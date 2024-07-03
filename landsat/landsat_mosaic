@@ -140,7 +140,7 @@ return(L)
 
 }
 
-var landsat_mosic = lsMosaic(aoi)
+var landsat_mosaic = lsMosaic(aoi)
 
 // #######################################################################
 
