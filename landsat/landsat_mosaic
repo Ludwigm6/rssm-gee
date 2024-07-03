@@ -97,7 +97,7 @@ var lsNDVI = function(aoi){
 
 
 // Rename bands, because Bands are different for different satellites
-var name_standard = ['RED', 'NIR', 'QA_PIXEL', 'QA_RADSAT']
+var name_standard = ['BLUE','GREEN', 'RED', 'NIR', 'QA_PIXEL', 'QA_RADSAT']
 
 
 // Define function ndvi
@@ -115,7 +115,7 @@ var l4 = ee.ImageCollection("LANDSAT/LT04/C02/T1_L2")
   .filterBounds(aoi)
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
-  .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
+  .select(["SR_B1", "SR_B2", "SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
   .map(maskLcl)
   .map(ndvi)
   .select("NDVI")
@@ -124,7 +124,7 @@ var l5 = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
   .filterBounds(aoi)
   .filter(ee.Filter.calendarRange(startMonth, endMonth, 'month'))
   .filter(ee.Filter.lt('CLOUD_COVER', 80))
-  .select(["SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
+  .select(["SR_B1", "SR_B2", "SR_B3", "SR_B4", "QA_PIXEL", "QA_RADSAT"], name_standard)
   .map(maskLcl)
   .map(ndvi)
   .select("NDVI")
