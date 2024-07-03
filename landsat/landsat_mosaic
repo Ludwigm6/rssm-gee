@@ -174,7 +174,6 @@ Export.image.toDrive({
 
 
 //// REFERENCES
-// https://gis.stackexchange.com/questions/340433/making-intra-annual-image-composites-for-a-series-of-years-in-google-earth-engin
 // cloud and saturation mask adapted from:
 // https://gis.stackexchange.com/questions/425159/how-to-make-a-cloud-free-composite-for-landsat-8-collection-2-surface-reflectanc
 
