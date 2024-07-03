@@ -42,11 +42,6 @@ print(output)
 
 
 
-// Conduct Band names 
-var bandnames = [];
-for(var i = startYear; i <= endYear; i++) {
-  bandnames.push(index + reducer + "_" + i)
-}
 
 
 
