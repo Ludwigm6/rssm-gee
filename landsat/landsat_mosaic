@@ -152,7 +152,7 @@ Map.addLayer(landsat_mosaic.select(1), {}, "Landsat")
 
 
 Export.image.toDrive({
-  image: ndviTS,
+  image: landsat_mosaic,
   region: aoi,
   scale: out_scale,
   crs: out_crs,
