@@ -11,15 +11,11 @@
 // aoi - FeatureCollection: area of interest
 var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder");
 
-// index - string: NDVI
-var index = "NDVI"
-
 // Define startYear and endYear - numeric
 var year = 2015
 
-
 // startMonth and endMonth - numeric
-// months for each year to aggregate. This can be used to e.g. only select the vegetation period
+// months for each year to mosaic. This can be used to e.g. only select the vegetation period
 var startMonth = 6;
 var endMonth = 9;
 
