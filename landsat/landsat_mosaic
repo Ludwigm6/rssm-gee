@@ -169,20 +169,7 @@ var landsat_mosic = lsMosaic(aoi)
 
 // #######################################################################
 
-// Make a list of years to generate composites for.
-var yearList = ee.List.sequence(startYear, endYear);
 
-// Map over the list of years to generate a composite for each year - returns an List.
-var yearCompList = yearList.map(function(year){
-  // Filter the merged collection by the given year.  
-  var yearCol = ndvi_ts.filter(ee.Filter.calendarRange(year, year, 'year'));
-  // Reduce (composite) the images for this year.
-  var yearComp = yearCol.reduce(myReducer);
-  // Return the intra-annual composite - set properties just defined.
-  return yearComp.set({
-    'year': year
-  });
-});
 
 
 var ndviTS = ee.ImageCollection(yearCompList)
