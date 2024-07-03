@@ -141,6 +141,7 @@ return(L)
 }
 
 var landsat_mosaic = lsMosaic(aoi)
+landsat_mosaic = landsat_mosaic.clip(aoi)
 
 // #######################################################################
 
