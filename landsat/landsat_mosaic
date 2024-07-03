@@ -146,8 +146,6 @@ var landsat_mosic = lsMosaic(aoi)
 
 
 
-
-print(bandnames)
 print(landsat_mosaic)
 Map.addLayer(landsat_mosaic.select(1), {}, "Landsat")
 
