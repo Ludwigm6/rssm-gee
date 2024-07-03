@@ -9,7 +9,7 @@
 //// PARAMETERS
 
 // aoi - FeatureCollection: area of interest
-var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/peat/natura2000_moorwaelder");
+var aoi = ee.FeatureCollection("projects/ee-ludwigm6/assets/");
 
 // Define startYear and endYear - numeric
 var year = 2015
