@@ -35,10 +35,7 @@ var out_scale = 30
 // SCRIPT START
 
 // Conduct filename
-var output = out_prefix + "-" + "RGBNIRmedian" + "-" +
-             year.toString() + "-" +
-             ("0" + startMonth).slice(-2) + "-" +
-             ("0" + endMonth).slice(-2)
+var output = out_prefix + "-" + "RGBNIRmedian"
 print(output)
 
 
