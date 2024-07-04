@@ -10,8 +10,10 @@
 // aoi - FeatureCollection: area of interest
 var aoi = ee.FeatureCollection("projects/ee-rssm-beyond/assets/explos/be_alb");
 
-// Define startYear and endYear - numeric
-var year = 2015
+// Define the startYear and endYear for the composite- numeric
+var startYear = 2015
+var endYear = 2015
+
 
 // startMonth and endMonth - numeric
 // months for each year to mosaic. This can be used to e.g. only select the vegetation period
