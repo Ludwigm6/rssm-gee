@@ -2,7 +2,7 @@
 // Computes a Landsat (vegetation) index time series with a yearly resolution.
 
 //// RETURN
-// Multi-Layer Image, each layer is a year
+// Multi-Layer Image, RGBNIR
 
 
 //// PARAMETERS
