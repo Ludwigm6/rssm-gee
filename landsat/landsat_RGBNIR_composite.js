@@ -16,7 +16,7 @@ var endYear = 2015
 
 
 // startMonth and endMonth - numeric
-// months for each year to mosaic. This can be used to e.g. only select the vegetation period
+// months for each year to composite. This can be used to e.g. only select the vegetation period
 var startMonth = 6;
 var endMonth = 9;
 
