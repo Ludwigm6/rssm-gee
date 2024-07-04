@@ -1,6 +1,5 @@
-//// Landsat Yearly Index Composite Time Series
+//// Landsat RGB NIR Composite
 // Computes a Landsat (vegetation) index time series with a yearly resolution.
-// How the months of a year are aggeragted can be selected with "reducer"
 
 //// RETURN
 // Multi-Layer Image, each layer is a year
